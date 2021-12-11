@@ -6,7 +6,7 @@
 #    By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 14:42:18 by cberganz          #+#    #+#              #
-#    Updated: 2021/12/01 15:55:35 by cberganz         ###   ########.fr        #
+#    Updated: 2021/12/11 04:11:05 by cberganz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,7 +100,7 @@ ${OBJ_DIRS}:
 ${OBJ}: | ${OBJ_DIRS}
 
 ${OBJ_DIR}%.o: ${SRC_DIR}%.c ${HEADER}
-	${CC} ${FLAGS} -I${INCLUDE} -c $< -o $@
+	${CC} ${CFLAGS} -I${INCLUDE} -c $< -o $@
 
 clean:
 	rm -rf ${OBJ_DIR}
