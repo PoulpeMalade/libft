@@ -6,7 +6,7 @@
 /*   By: cberganz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 13:34:47 by cberganz          #+#    #+#             */
-/*   Updated: 2021/11/25 16:37:03 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/01/13 21:57:17 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
+# include <fcntl.h>
 
 /*
 ** List
@@ -112,5 +113,13 @@ void	ft_memdel(void **ap);
 void	*ft_memalloc(size_t size);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
+
+/*
+** Get_next_line
+*/
+
+char	*get_next_line(int fd);
+char	*ft_join_gnl(char *s1, char *s2);
+int	no_newline_in(char *s);
 
 #endif

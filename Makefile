@@ -6,7 +6,7 @@
 #    By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 14:42:18 by cberganz          #+#    #+#              #
-#    Updated: 2021/12/11 04:11:05 by cberganz         ###   ########.fr        #
+#    Updated: 2022/01/13 21:54:36 by cberganz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,10 @@ SRC_NAME	= ctype/ft_isalnum.c		\
 			string/ft_strstr.c	\
 			string/ft_strtrim.c	\
 			string/ft_substr.c	\
-			string/ft_putnbr_base.c
+			string/ft_putnbr_base.c \
+			gnl/get_next_line.c	\
+			gnl/get_next_line_utils.c
+			
 
 SRC_DIR		= src/
 SRC		= ${addprefix ${SRC_DIR}, ${SRC_NAME}}
