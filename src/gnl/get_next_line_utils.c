@@ -6,27 +6,27 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 19:51:39 by cberganz          #+#    #+#             */
-/*   Updated: 2022/01/13 22:01:33 by cberganz         ###   ########.fr       */
+/*   Updated: 2021/12/08 17:12:22 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../include/libft.h"
 
-int	no_newline_in(char *s)
+int	no_newline_in(char *save)
 {
-	if (s)
+	if (save)
 	{
-		while (*s)
+		while (*save)
 		{
-			if (*s == '\n')
+			if (*save == '\n')
 				return (0);
-			s++;
+			save++;
 		}
 	}
 	return (1);
 }
 
-char	*ft_join(char *s1, char *s2)
+char	*ft_join_gnl(char *s1, char *s2)
 {
 	char	*str;
 	int		i;

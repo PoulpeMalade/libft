@@ -6,11 +6,13 @@
 /*   By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 14:17:08 by cberganz          #+#    #+#             */
-/*   Updated: 2022/01/13 22:00:54 by cberganz         ###   ########.fr       */
+/*   Updated: 2022/01/14 03:22:05 by cberganz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../include/libft.h"
+
+#define BUFFER_SIZE 1000
 
 static char	*line_maker(char *save)
 {
@@ -36,7 +38,7 @@ static char	*line_maker(char *save)
 	}
 	line[i] = save[i];
 	if (line[i] != '\0')
-		line[i + 1] = '\0';
+		line[i] = '\0';
 	return (line);
 }
 
@@ -71,25 +73,18 @@ static char	*ft_save_cleaner(char *save)
 
 static char	*ft_read(int fd, char *save)
 {
-	char	*buffer;
+	char	buffer[BUFFER_SIZE + 1];
 	int		read_return;
 
-	buffer = (char *)malloc(42 + 1 * sizeof(char));
-	if (!buffer)
-		return (NULL);
 	read_return = 1;
 	while (no_newline_in(save) && read_return != 0)
 	{
-		read_return = read(fd, buffer, 42);
+		read_return = read(fd, buffer, BUFFER_SIZE);
 		if (read_return < 0)
-		{
-			free(buffer);
 			return (NULL);
-		}
 		buffer[read_return] = '\0';
 		save = ft_join_gnl(save, buffer);
 	}
-	free(buffer);
 	return (save);
 }
 
@@ -98,7 +93,7 @@ char	*get_next_line(int fd)
 	static char	*save[257];
 	char		*next_line;
 
-	if (fd < 0 || fd > 256)
+	if (fd < 0 || BUFFER_SIZE < 1 || fd > 256)
 		return (NULL);
 	save[fd] = ft_read(fd, save[fd]);
 	if (!save[fd])

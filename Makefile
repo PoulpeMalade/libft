@@ -6,7 +6,7 @@
 #    By: cberganz <cberganz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 14:42:18 by cberganz          #+#    #+#              #
-#    Updated: 2022/01/13 21:54:36 by cberganz         ###   ########.fr        #
+#    Updated: 2022/01/14 01:06:18 by cberganz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INCLUDE		= include/
 
 HEADER		= ${INCLUDE}libft.h
 
-CC		= gcc
+CC		= clang
 
 CFLAGS		= -Wall -Wextra -Werror
 
@@ -103,7 +103,7 @@ ${OBJ_DIRS}:
 ${OBJ}: | ${OBJ_DIRS}
 
 ${OBJ_DIR}%.o: ${SRC_DIR}%.c ${HEADER}
-	${CC} ${CFLAGS} -I${INCLUDE} -c $< -o $@
+	${CC} ${CFLAGS} -I${INCLUDE} -c $< -o $@ -g3
 
 clean:
 	rm -rf ${OBJ_DIR}
